@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Search Page </title>
+        <link rel="icon" href="{% static 'images/Search.png'%}">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/Search.css'%}">
+        {% block style %}
+          <style>
+            :root {
+              --cw: rgb(15, 255, 133);
+            }
+            *
+            {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            body
+            {
+
+                background:#eeebeb;;
+                width: 90%;
+                overflow: hidden;
+            }
+            #bp
+            {
+                font-size: 8vw;
+                margin-top: 10vw;
+                margin-left: 25vw;
+              
+            }
+            #fp
+            {
+                font-size: 2vw;
+                margin-left: 38vw;
+                margin-top: -7vw;
+            }
+            form
+            {
+                margin-left: 36.5vw;
+                border: 1px solid rgb(196, 192, 255);
+                box-shadow: 0px 0px 50px 20px  var(--cw);
+                width: min-content;
+                display: grid;
+                place-content: center;
+                border-radius: 20px;
+            }
+            #text
+            {
+              padding-left: 20px;
+                border-radius: 20px;
+                width: 25vw;
+                height: 2.8vw;
+                background-color:transparent;
+                border: 1px solid rgb(80, 78, 78) ;
+                outline: none;
+            }
+            
+            #search
+            {
+                position: relative;
+                border-radius: 50px;
+                width: 8vw;
+                height: 3vw;
+                top: -3.1vw;
+                left: 20vw;
+                color: rgb(2, 2, 2);
+                cursor: pointer;
+                transition: all 1s;
+            }
+            .d
+            {
+                margin-top: -1vw;
+                font-size: 1.2vw;
+                margin-left: .5vw;
+            }
+            #text::placeholder
+            {
+                color:rgb(1, 36, 36);
+                font-size: large;
+            }
+            #d1
+            {
+                border-radius: 50%;
+                background-color: pink;
+                position: absolute;
+                width: 10vw;
+                height: 10vw;
+                top: -0.2vw;
+                box-shadow: 0px 0px 20px 2px rgb(253, 222, 227);
+            }
+            #d2
+            {
+                border-radius: 50%;
+                background-color: pink;
+                position: absolute;
+                width: 2vw;
+                height: 2vw;
+                top: 13vw;
+                left: 5vw;
+                box-shadow: 0px 0px 20px 2px rgb(253, 222, 227);
+            }
+            #d3
+            {
+                border-radius: 50%;
+                background-color: blue;
+                position: absolute;
+                width: 10vw;
+                height: 10vw;
+                top: 33vw;
+                left: 85vw;
+                box-shadow: 0px 0px 30px 25px rgb(133, 133, 252);
+            }
+            #d4
+            {
+                border-radius: 50%;
+                background-color: blue;
+                position: absolute;
+                width: 2vw;
+                height: 2vw;
+                top: 44vw;
+                left: 88vw;
+                box-shadow: 0px 0px 20px 2px rgb(133, 133, 252);
+            }
+            a
+            {
+                text-decoration:none;
+            }
+            #kide1
+            {
+            width: 14vw;
+            position: absolute;
+            top: 9vw;
+            left: 82vw;
+            transform: rotate(-10deg);
+            }
+            #kide2
+            {
+                width: 8vw;
+                position: absolute;
+                top: 16vw;
+                left: 86vw;
+                transform: rotate(-3deg);
+            }
+            #kide3
+            {   
+              width: 14vw;
+              position: absolute;
+              top: 30vw;
+              left: 11vw;
+              transform: rotate(5deg);
+
+            }
+            #kide4
+            {
+                width: 8vw;
+                position: absolute;
+                left: 10vw;
+                top: 36vw;
+                transform: rotate(-3deg);
+            }
+            #searchicon
+            {
+                position: absolute;
+                top: 25vw;
+                width: 30vw;
+                left: 5vw;
+            }
+          form
+          {
+          
+            animation: form 1000ms ease-in;
+          }
+          
+          #c_
+          {
+            margin-left: 60vw;
+            margin-top: -45vw;
+            background-color: transparent;
+            box-shadow: inset 0px 0px 200px 5px var(--cw);
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            animation: shadow 2000ms infinite alternate-reverse;
+          }
+          @keyframes shadow{
+            0%
+            {
+              box-shadow: inset 0px 0px 0px 20px var(--cw);
+            }
+            100%
+            {
+              box-shadow: inset 0px 0px 120px 20px var(--cw);
+            }
+          }
+          #search
+          {
+            background-color: transparent;
+            box-shadow: inset 0px 0px 9px 5px rgb(80, 78, 78);
+            border: 1px solid rgb(80, 78, 78);
+          }
+          #rw
+          {
+            width: .7vw;
+            height: 3px;
+            background-color:rgb(80, 78, 78) ;
+            margin-left: 62.15vw;
+            margin-top: -15.8vw;
+            animation: tras 500ms infinite reverse;
+          }
+          @keyframes tras{
+            0%
+            {
+              background-color: rgb(80, 78, 78);
+            }
+            100%
+            {
+              background: transparent;
+            }
+
+          }
+        
+          #search:hover
+          {
+              transform: scale(1.2);
+              box-shadow: 0px 0px 9px 5px rgb(80, 78, 78);
+          }
+        </style> 
+        {% endblock style %}
+    </head>
+    <body>
+      {% block form %} 
+            <p id="bp"> B<span style="color: var(--cw);">a</span>ck to Home  </p>
+            <p id="fp"> Find the family of children </p>
+            <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+            
+            <p style="margin-left: 1.2vw ;"> ID: / الكود </p>
+            <input type="text" placeholder="write the id of kid here" id="text" name="code">
+            <input type="submit" value=" Search " id="search" name="sub" >
+            <img src="{% static 'images/search.png'%}" alt="searchicon" id="searchicon">
+            <p class="d" style="margin-top: 1vw;"> you want to add data of your kid? <a href="{% url 'add_data' %}"> click here </a> </p><br>
+            <p class="d"> هل تريد اضافة بيانات طفلك؟ <a href="{% url 'add_data' %}"> اضغط هنا </a> </p>
+          
+          
+        </form> 
+            
+            <img src="{% static 'images/p1.jpeg'%}" alt="kide1" id="kide1">
+            <img src="{% static 'images/p2.jpeg'%}" alt="kide2" id="kide2">
+            <img src="{% static 'images/p3.jpeg'%}" alt="kide3" id="kide3">
+            <img src="{% static 'images/p4.jpeg'%}" alt="kide4" id="kide4">
+      {% endblock %}
+    <div id="c_"></div>
+    <div id="rw"></div>
+    </body>
+</html>

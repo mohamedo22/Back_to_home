@@ -1,0 +1,159 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block style %}
+<style>
+    *
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+    form {
+        width: 40%;
+        height: min-content;
+        margin-left: 43vw;
+    }
+    
+    body {
+        overflow: auto;
+    }
+    
+    #head {
+        margin-left: 13vw;
+        font-weight: 900;
+        text-decoration: underline;
+        text-decoration-color: blue;
+        position: absolute;
+    }
+    
+    #cont {
+        margin-left: 1vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+    }
+    
+    .custom-file-upload {
+        border: 2px solid #ccc;
+        display: inline-block;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        color: #333;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-bottom: 10px;
+    }
+    
+    .custom-file-upload:hover {
+        background-color: #ddd;
+    }
+    
+    #bp {
+        margin-top: 3vw;
+    }
+    
+    /* Optional styling for the input fields */
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        position: relative;
+        outline: none;
+    }
+    
+    .in::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8vw;
+    height: 2px;
+    background: linear-gradient(to right, rgb(15, 255, 133), black);
+    animation: mm 3s infinite alternate-reverse ;
+}
+    @keyframes mm{
+        0%
+        {
+            left: -7vw;
+        }
+        100%
+        {
+            left: 38vw;
+        }
+    }
+
+    a:hover {
+        color: red;
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+    
+    
+    #sub
+    {
+        background-color: transparent;
+        border: 2px solid rgb(15, 255, 133);
+        transition: all 1000ms;
+    }
+    #sub:hover
+    {
+        background-color: rgb(15, 255, 133);
+        box-shadow: 0px 0px 25px 2px rgb(15, 255, 133) ;
+    }
+    #bp
+    {
+        font-size: 8vw;
+        margin-top: 6vw;
+        margin-left: -17vw;
+        width: 50vw;
+    }
+    #fp
+    {
+        font-size: 2vw;
+        margin-left: -4vw;
+        margin-top: -7vw;
+        width: 23vw;
+        margin-bottom: 9vw;
+    }
+</style>    
+
+{% endblock %}
+{% block st %}
+{% endblock %}
+{% block form %}
+{% csrf_token %}
+<form method="post" enctype="multipart/form-data">
+<p id="bp"> B<span style="color: rgb(15, 255, 133) ;">a</span>ck to Home  </p>
+<p id="fp"> Find the family of children </p>
+<h3 id="head" style="margin-top: -3vw; "> Add you child data </h3>
+<div id="cont">
+    <p>Child Image: / صورة الطفل</p>
+    <!-- <label for="image-upload" class="custom-file-upload">
+        Choose Image
+    </label> -->
+    <input type="file" name="image" id="image-upload" class="in" required >
+    <p>Child Name: / اسم الطفل</p>
+    <input type="text" placeholder="Write the child name here" id="sss"  required name="name">
+    <p>Address: / العنوان</p>
+    <input type="text" required placeholder="write the address of parents here"  class="in" name="address">
+    <p>Phone Number of Home: / رقم هاتف ولي الأمر</p>
+    <input type="number" name="phone_number1" placeholder="write the first number here"  class="in" required>
+    <p>Another Phone Number: / رقم هاتف آخر</p>
+    <input type="number" name="phone_number2" placeholder="write the second number here"  class="in" required>
+    <p> ID: / انشأ كود </p>
+    <input type="number" name="code" placeholder="Create the id of the child"  class="in" >
+    <input type="submit" value="Add" id="sub" style="margin-left: 1vw; margin-bottom:2vw">
+    <a href="{% url 'index' %}" style="text-decoration: none; " "> Back To Search </a>
+</div>
+</form>
+{% endblock %}

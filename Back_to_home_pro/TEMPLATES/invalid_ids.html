@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Search Page </title>
+        <link rel="icon" href="{% static 'images/Search.png'%}">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/Search_page.css'%}">
+         {% block style %}
+          <style>
+          #cm
+          {
+           text-align: center;
+           border:1px solid red; 
+           background-color:bisque; 
+           border-radius: 8px;  
+           position:absolute;
+           top: 26vw;
+           left:40vw;
+           width: 20vw;
+          }
+          #back
+          {
+            display: flex;
+          }
+          #afb:hover
+          {
+            color: #ff0000;
+          }
+         </style>
+          {% endblock style %}
+    </head>
+    <body>
+        <p id="bp"> Back to Home  </p>
+        <p id="fp"> Find the family of children </p>
+        <form method="post">
+           {% csrf_token %}
+           {% block form %} 
+            <p style="margin-left: 1.2vw ;"> ID: / الكود </p>
+            <input type="text" placeholder="write the id of kide here" id="text" disabled>
+            <input type="submit" value=" Search " id="search" disabled>
+            <p class="d"> you want to add data of your kide? <a href="#"> clik here </a> </p>
+            <p class="d"> هل تريد اضافات بيانات طفلك؟ <a href="#" > اضغط هنا </a> </p>
+           {% endblock %}
+        </form> 
+    <div id="d1" style="top: -3vw;"> </div>
+    <div id="d2" style="top: 8vw; left:7vw" > </div>
+    <div id="d3"> </div>
+    <div id="d4"> </div>
+    <img src="{% static 'images/p1.jpeg'%}" alt="kide1" id="kide1">
+    <img src="{% static 'images/p2.jpeg'%}" alt="kide2" id="kide2">
+    <img src="{% static 'images/p3.jpeg'%}" alt="kide3" id="kide3">
+    <img src="{% static 'images/p4.jpeg'%}" alt="kide4" id="kide4">
+    <img src="{% static 'images/search.png'%}" alt="searchicon" id="searchicon">
+    <div class="message-container"   id="cm">
+        <p class="invalid-id" style="font-size: 24px; color: #ff0000;">invalid id , Try agin</p>
+       <div id="back">
+       <img style="width: 2vw; margin-top:-.2vw; " src="{% static 'images/previous.png' %}" alt="Back arrow" >  
+       <a href="{% url 'index' %}" id="afb" > Back  </a>
+       </div>
+    </div>
+    </body>
+</html>

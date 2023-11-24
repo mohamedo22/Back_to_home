@@ -1,0 +1,133 @@
+{% extends 'Search_page.html' %}
+{% load static %}
+{% block style %}
+<style>
+    form{
+        width:40%;
+        height: min-content;
+        margin-left: 43vw;
+        
+    }
+    body
+    {
+        overflow:auto;
+    }
+    #head
+    {
+        margin-left: 13vw;
+        font-weight: 900;
+        text-decoration: underline;
+        text-decoration-color: blue ;
+        position: absolute;
+    }
+    #cont
+    {
+        margin-left: 1vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+    }
+    .custom-file-upload {
+    border: 2px solid #ccc;
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload:hover {
+    background-color: #ddd;
+}
+#bp
+{
+    margin-top: 3vw;
+}
+
+/* Optional styling for the input fields */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+input[type="submit"]
+ {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius:8px;
+    font-size: 16px;
+}
+a:hover
+{
+    color: red;
+}
+#back
+{
+    margin-left: -25vw;
+    transition-property: background-color , color;
+    transition-duration: 1s;
+    border-radius: 4px;
+    width: 5vw;
+    height: 5vw;
+}
+#back:hover
+{
+    background-color: rgba(0, 255, 76, 0.452);
+    color: rgb(0, 0, 0);
+}
+#back
+{
+    width:6vw;
+    height: 2.5vw;
+    display:flex;
+    justify-content:center;
+    margin-left: 0vw ;
+}
+#afb:hover
+{
+    color: rgb(0, 7, 14);
+}
+#afb
+{
+    margin: .3vw;
+}
+</style>
+
+
+{% endblock %}
+{% block st %}
+{% endblock %}
+{% block form %}
+
+<h3 id="head"> Add you child data </h3>
+<div id="cont">
+    <p>Child Image: / صورة الطفل</p>
+    <label for="image-upload" class="custom-file-upload"  >
+        Choose Image
+    </label>
+    <input type="file" name="image" id="image-upload"   hidden>
+    <p>Child Name: / اسم الطفل</p>
+    <input type="text" placeholder="Write the child name here" disabled >
+    <p>Address: / العنوان</p>
+    <input type="text" required placeholder="write the address of parents here" disabled>
+    <p>Phone Number of Home: / رقم هاتف ولي الأمر</p>
+    <input type="number" name="phone_number1" placeholder="write the first number here" disabled>
+    <p>Another Phone Number: / رقم هاتف آخر</p>
+    <input type="number" name="phone_number2" placeholder="write the second number here" disabled>
+    <p> ID: / انشأ كود </p>
+    <input type="number" name="n_of_id" placeholder="Create the id of the child" disabled>
+    <input type="submit" value="Add" class="custom-file-upload" style="margin-left: 1vw; margin-bottom:2vw" disabled>
+    <a href="{% url 'index' %}" style="text-decoration: none; ;"> Back To Search </a>
+    <div class="message-container" style="text-align: center;  border:2px solid rgb(2, 255, 171); background-color:bisque; border-radius: 8px;  position:absolute; top: 50vw; left:48vw">
+        <p class="invalid-id" style="font-size: 24px; color: #0400ff;">The account created successfuly</p>
+        <div id="back">
+       <img style="width: 2vw;" src="{% static 'images/previous.png' %}" alt="Back arrow">  
+       <a href="{% url 'index' %}" id="afb" > Go  </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
