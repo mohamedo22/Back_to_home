@@ -12,7 +12,7 @@ def index(request):
                 return  HttpResponseRedirect(f'/data/?id={code}')
             else:
                 return redirect(invalid_ids)
-        else: 
+        else:
             return render(request , 'index.html')
     return render(request,'index.html')
 def add_data(request):
@@ -31,23 +31,26 @@ def add_data(request):
                                         name = name_user ,
                                         address = address_user ,
                                         phonenumber= phone1 ,
-                                        phonenumber2 = phone2 , 
+                                        phonenumber2 = phone2 ,
                                         code = code_user
                             )
             data.save()
-            return redirect(add_succ)
+            return HttpResponseRedirect(f'/add_successfuly/?code={code_user}')
     return render(request,'add_data.html')
 @login_required(login_url='index')
 def invalid_id(request):
     return render(request,'invalid_id.html')
 @login_required(login_url='index')
 def add_succ(request):
-    return render(request,'add_succ.html')
+    code = request.GET.get('code')
+    return render(request,'add_succ.html',{'code': code})
 @login_required(login_url='index')
 def invalid_ids(request):
     return render(request,'invalid_ids.html')
-@login_required(login_url='index')
 def data(request):
     id = request.GET.get('id')
     user = userclass.objects.filter(code=id).first()
-    return render(request,'data_page.html' , {'kide' : user})
+    if user:
+      return render(request,'data_page.html' , {'kide' : user})
+    else:
+      return  redirect (invalid_ids)
