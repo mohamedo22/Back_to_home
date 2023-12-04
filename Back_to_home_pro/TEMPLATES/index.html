@@ -223,7 +223,6 @@
         هل تريد اضافة بيانات طفلك؟ <a href="{% url 'add_data' %}"> اضغط هنا </a>
       </p>
     </form>
-
     <img src="{% static 'images/p1.jpeg'%}" alt="kide1" id="kide1" />
     <img src="{% static 'images/p2.jpeg'%}" alt="kide2" id="kide2" />
     <img src="{% static 'images/p3.jpeg'%}" alt="kide3" id="kide3" />
@@ -231,5 +230,19 @@
     {% endblock %}
     <div id="c_"></div>
     <div id="rw"></div>
+    <div id="check" style="display: none">{{check}}</div>
+    <script>
+      function showAlert() {
+        let checkValue = document
+          .getElementById("check")
+          .textContent.trim()
+          .toLowerCase();
+
+        if (checkValue == "false") {
+          window.alert("This id is not found");
+        }
+      }
+      showAlert();
+    </script>
   </body>
 </html>

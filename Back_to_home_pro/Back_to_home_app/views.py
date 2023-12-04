@@ -11,7 +11,8 @@ def index(request):
             if search :
                 return  HttpResponseRedirect(f'/data/?id={code}')
             else:
-                return redirect(invalid_ids)
+                check = "False";
+                return render(request,'index.html' , {'check':check})
         else:
             return render(request , 'index.html')
     return render(request,'index.html')

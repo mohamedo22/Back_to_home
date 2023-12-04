@@ -210,7 +210,7 @@
 <script>
   function add() {
     let elementc = document.getElementById("codec");
-    let code = "http://127.0.0.1:8000/?id=" + elementc.textContent; // Changed from .content to .textContent
+    let code = "http://127.0.0.1:8000/data/?id=" + elementc.textContent; // Changed from .content to .textContent
     let qrcode = new QRCode(document.getElementById("con_of_qr"), code); // Added quotes around "con_of_qr"
   }
   add(); // You may want to call the add() function to generate QR code when the page loads
