@@ -6,6 +6,7 @@
     <link rel="icon" href="{% static 'images/Search.png'%}" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{% static 'css/Search.css'%}" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {% block style %}
     <style>
       :root {
@@ -239,7 +240,12 @@
           .toLowerCase();
 
         if (checkValue == "false") {
-          window.alert("This id is not found");
+          Swal.fire({
+            title: 'Error!',
+            text: 'This is not user',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
         }
       }
       showAlert();

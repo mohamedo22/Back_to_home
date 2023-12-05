@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
       * {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -198,7 +199,12 @@
           .toLowerCase();
 
         if (checkValue == "false") {
-          window.alert("This id is already Taken , please choose another id");
+          Swal.fire({
+            title: 'Error!',
+            text: 'This id is already taken, please choose another one',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
         }
       }
       showAlert();
