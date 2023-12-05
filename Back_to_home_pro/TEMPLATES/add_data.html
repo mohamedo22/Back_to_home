@@ -188,11 +188,20 @@
         </a>
       </div>
     </form>
+    <div id="check" style="display: none">{{check}}</div>
     {% endblock %} {% block sc %}
     <script>
-      function add() {
-        let code = document.getElementById("code");
+      function showAlert() {
+        let checkValue = document
+          .getElementById("check")
+          .textContent.trim()
+          .toLowerCase();
+
+        if (checkValue == "false") {
+          window.alert("This id is already Taken , please choose another id");
+        }
       }
+      showAlert();
     </script>
     {% endblock %}
   </body>

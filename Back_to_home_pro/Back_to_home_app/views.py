@@ -26,7 +26,8 @@ def add_data(request):
         code_user = request.POST.get('code')
         search = userclass.objects.filter(code=code_user).first()
         if search:
-            return redirect(invalid_id)
+            check = "False";
+            return render(request,'add_data.html' , {'check':check})
         else:
             data = userclass(image = image_user ,
                                         name = name_user ,
