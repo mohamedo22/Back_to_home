@@ -42,7 +42,6 @@ def add_data(request):
 @login_required(login_url='index')
 def invalid_id(request):
     return render(request,'invalid_id.html')
-@login_required(login_url='index')
 def add_succ(request):
     code = request.GET.get('code')
     return render(request,'add_succ.html',{'code': code})
