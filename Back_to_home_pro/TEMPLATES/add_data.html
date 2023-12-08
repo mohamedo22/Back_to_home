@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Add data</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
       * {
@@ -144,6 +145,7 @@
           id="sss"
           required
           name="name"
+          list="none"
         />
         <p>Address: / العنوان</p>
         <input
@@ -152,6 +154,7 @@
           placeholder="write the address of parents here"
           class="in"
           name="address"
+          list="none"
         />
         <p>Phone Number of Home: / رقم هاتف ولي الأمر</p>
         <input
@@ -160,6 +163,7 @@
           placeholder="write the first number here"
           class="in"
           required
+          list="none"
         />
         <p>Another Phone Number: / رقم هاتف آخر</p>
         <input
@@ -168,6 +172,7 @@
           placeholder="write the second number here"
           class="in"
           required
+          list="none"
         />
         <p>ID: / انشأ كود</p>
         <input
@@ -176,6 +181,7 @@
           id="code"
           placeholder="Create the id of the child"
           class="in"
+          list="none"
         />
         <input
           type="submit"
@@ -183,6 +189,7 @@
           value="Add"
           id="sub"
           style="margin-left: 1vw; margin-bottom: 2vw"
+          list="none"
         />
         <a href="{% url 'index' %}" style="text-decoration: none">
           Back To Search
@@ -200,11 +207,11 @@
 
         if (checkValue == "false") {
           Swal.fire({
-            title: 'Error!',
-            text: 'This id is already taken, please choose another one',
-            icon: 'error',
-            confirmButtonText: 'Ok'
-          })
+            title: "Error!",
+            text: "This id is already taken, please choose another one",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
         }
       }
       showAlert();

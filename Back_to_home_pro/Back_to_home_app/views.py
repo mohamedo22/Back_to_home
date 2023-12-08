@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.shortcuts import render , redirect , HttpResponseRedirect
 from .models import *
+from datetime import *
 # Create your views here.
 def index(request):
     if request.method == 'POST':
@@ -55,3 +56,31 @@ def data(request):
       return render(request,'data_page.html' , {'kide' : user})
     else:
       return  redirect (invalid_ids)
+@login_required(login_url='admin_page')
+def admin_home(request):
+    loop = userclass.objects.all()
+    id_of_user = request.POST.get('id')
+    check = "false"
+    try:
+        user_instance = userclass.objects.get(code=id_of_user)
+        if user_instance is not None:
+             user_instance.delete()
+             check = "true"
+        else:
+             check = "false"
+             return render(request, 'admin_home.html', {'table_users': loop, 'check': check})
+    except userclass.DoesNotExist:
+        check = "false"
+    return render(request, 'admin_home.html', {'table_users': loop, 'check': check})
+
+def admin_page(request):
+    if request.method == 'POST':
+       user_name = request.POST.get('user_name')
+       password = request.POST.get('pass')
+       admin = admin_table.objects.filter(user_name=user_name, password=password).first()
+       if admin:
+           return redirect(admin_home)
+       else:
+           check = "false"
+           return render(request , 'admin_page.html' , {'check':check})
+    return render(request , 'admin_page.html')

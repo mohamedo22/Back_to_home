@@ -177,7 +177,7 @@
         height: 3px;
         background-color: rgb(80, 78, 78);
         margin-left: 62.15vw;
-        margin-top: -15.8vw;
+        margin-top: -20vw;
         animation: tras 500ms infinite reverse;
       }
       @keyframes tras {
@@ -192,6 +192,34 @@
       #search:hover {
         transform: scale(1.2);
         box-shadow: 0px 0px 9px 5px rgb(80, 78, 78);
+      }
+      .btnn {
+        background: rgba(253, 253, 253, 0);
+        outline: none;
+        border: 1px solid rgba(255, 0, 0, 0);
+        border-radius: 0.5rem;
+        padding: 10px;
+        margin: 10px auto;
+        width: 80%;
+        display: block;
+        color: #425981;
+        font-weight: 500;
+        font-size: 1.1em;
+      }
+      .btnn {
+        color: #5e7eb6;
+        font-size: medium;
+        border: 2px solid rgb(15, 255, 133);
+        transition: all 0.5s;
+        cursor: pointer;
+        padding-left: 5.5vw;
+        width: 10vw;
+      }
+      .btnn:hover {
+        color: #5e7eb6;
+        font-size: medium;
+        background-color: rgb(15, 255, 133);
+        box-shadow: 0px 0px 20px 5px rgb(15, 255, 133);
       }
     </style>
     {% endblock style %}
@@ -215,6 +243,9 @@
         alt="searchicon"
         id="searchicon"
       />
+
+      <a href="{% url 'admin_page' %}" class="btnn">I'm admin </a>
+
       <p class="d" style="margin-top: 1vw">
         you want to add data of your kid?
         <a href="{% url 'add_data' %}"> click here </a>
@@ -241,11 +272,11 @@
 
         if (checkValue == "false") {
           Swal.fire({
-            title: 'Error!',
-            text: 'This is not user',
-            icon: 'error',
-            confirmButtonText: 'Ok'
-          })
+            title: "Error!",
+            text: "This is not user",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
         }
       }
       showAlert();

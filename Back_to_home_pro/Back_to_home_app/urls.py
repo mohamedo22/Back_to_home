@@ -8,4 +8,6 @@ urlpatterns = [
     path('add_successfuly/', add_succ , name='add_succ'),
     path('data/', data , name='data_page'),
     path('invalid_ids/', invalid_ids , name='invalid_ids'),
+    path('admin_page/', admin_page , name='admin_page'),
+    path('admin_home/', admin_home , name='admin_home'),
 ]
